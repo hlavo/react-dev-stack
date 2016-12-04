@@ -7,6 +7,7 @@ const Layout = class Layout extends React.Component{
 
     constructor(props){
         super(props)
+        this.props.initFirebase()
     }
 
     render(){
@@ -25,7 +26,7 @@ const MapStateToProps = (state) => ({
 
 
 const MapDispatchToProps = (dispatch) => ({
-
+    initFirebase: () => dispatch(Actions.firebaseAction.initFirebase()),
 })
 
 export default connect(MapStateToProps, MapDispatchToProps)(Layout)

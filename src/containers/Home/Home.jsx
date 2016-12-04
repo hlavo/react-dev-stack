@@ -9,14 +9,14 @@ class Home extends React.Component{
     render(){
         return(
             <div className="widget--home">
-                home 2
+                home
             </div>
         )
     }
 }
 
 const MapStateToProps = (state) => ({
-    Home: state.Home
+
 })
 
 const MapDispatchToProps = (dispatch) => ({
