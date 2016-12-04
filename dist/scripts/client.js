@@ -33,7 +33,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(_app2.default, null)
 ), app);
 
-},{"./app":269,"./redux/store":278,"react":254,"react-dom":45,"react-redux":174}],2:[function(require,module,exports){
+},{"./app":269,"./redux/store":280,"react":254,"react-dom":45,"react-redux":174}],2:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27272,6 +27272,14 @@ var _Home = require("./containers/Home/Home.jsx");
 
 var _Home2 = _interopRequireDefault(_Home);
 
+var _Notfound = require("./containers/Notfound/Notfound.jsx");
+
+var _Notfound2 = _interopRequireDefault(_Notfound);
+
+var _Registration = require("./containers/Registration/Registration.jsx");
+
+var _Registration2 = _interopRequireDefault(_Registration);
+
 var _layout = require("./layout/layout.jsx");
 
 var _layout2 = _interopRequireDefault(_layout);
@@ -27306,7 +27314,9 @@ var App = function (_React$Component) {
                 _react2.default.createElement(
                     _reactRouter.Route,
                     { path: _config2.default.host, component: _layout2.default },
-                    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default })
+                    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+                    _react2.default.createElement(_reactRouter.Route, { path: "/registration", component: _Registration2.default }),
+                    _react2.default.createElement(_reactRouter.Route, { path: "*", component: _Notfound2.default })
                 )
             );
         }
@@ -27317,14 +27327,14 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"./config":270,"./containers/Home/Home.jsx":271,"./layout/layout.jsx":272,"react":254,"react-dom":45,"react-redux":174,"react-router":205}],270:[function(require,module,exports){
+},{"./config":270,"./containers/Home/Home.jsx":271,"./containers/Notfound/Notfound.jsx":272,"./containers/Registration/Registration.jsx":273,"./layout/layout.jsx":274,"react":254,"react-dom":45,"react-redux":174,"react-router":205}],270:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var config = {
-    host: "/whatsapp/dist"
+    host: "/"
 };
 
 exports.default = config;
@@ -27389,7 +27399,131 @@ var MapDispatchToProps = function MapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(MapStateToProps, MapDispatchToProps)(Home);
 
-},{"../../redux/actions/index":274,"react":254,"react-redux":174}],272:[function(require,module,exports){
+},{"../../redux/actions/index":276,"react":254,"react-redux":174}],272:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _index = require("../../redux/actions/index");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _reactRedux = require("react-redux");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Notfound = function (_React$Component) {
+    _inherits(Notfound, _React$Component);
+
+    function Notfound() {
+        _classCallCheck(this, Notfound);
+
+        return _possibleConstructorReturn(this, (Notfound.__proto__ || Object.getPrototypeOf(Notfound)).apply(this, arguments));
+    }
+
+    _createClass(Notfound, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "widget--notfound" },
+                "not"
+            );
+        }
+    }]);
+
+    return Notfound;
+}(_react2.default.Component);
+
+var MapStateToProps = function MapStateToProps(state) {
+    return {
+        Notfound: state.Notfound
+    };
+};
+
+var MapDispatchToProps = function MapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(MapStateToProps, MapDispatchToProps)(Notfound);
+
+},{"../../redux/actions/index":276,"react":254,"react-redux":174}],273:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _index = require("../../redux/actions/index");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _reactRedux = require("react-redux");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Registration = function (_React$Component) {
+    _inherits(Registration, _React$Component);
+
+    function Registration() {
+        _classCallCheck(this, Registration);
+
+        return _possibleConstructorReturn(this, (Registration.__proto__ || Object.getPrototypeOf(Registration)).apply(this, arguments));
+    }
+
+    _createClass(Registration, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "widget--registration" },
+                "REG"
+            );
+        }
+    }]);
+
+    return Registration;
+}(_react2.default.Component);
+
+var MapStateToProps = function MapStateToProps(state) {
+    return {
+        Registration: state.Registration
+    };
+};
+
+var MapDispatchToProps = function MapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(MapStateToProps, MapDispatchToProps)(Registration);
+
+},{"../../redux/actions/index":276,"react":254,"react-redux":174}],274:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27459,7 +27593,7 @@ var MapDispatchToProps = function MapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(MapStateToProps, MapDispatchToProps)(Layout);
 
-},{"../redux/actions/index":274,"react":254,"react-redux":174,"react-router":205}],273:[function(require,module,exports){
+},{"../redux/actions/index":276,"react":254,"react-redux":174,"react-router":205}],275:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27500,7 +27634,7 @@ exports.default = {
     }
 };
 
-},{"firebase":28}],274:[function(require,module,exports){
+},{"firebase":28}],276:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27517,7 +27651,7 @@ exports.default = Object.assign({
     firebaseAction: _firebaseAction2.default
 });
 
-},{"./firebaseAction":273}],275:[function(require,module,exports){
+},{"./firebaseAction":275}],277:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27537,7 +27671,7 @@ function postReducer() {
     }
 }
 
-},{}],276:[function(require,module,exports){
+},{}],278:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27556,7 +27690,7 @@ function errorReducer() {
     }
 }
 
-},{}],277:[function(require,module,exports){
+},{}],279:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27582,7 +27716,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./FirebaseReducer":275,"./errorReducer":276,"redux":262}],278:[function(require,module,exports){
+},{"./FirebaseReducer":277,"./errorReducer":278,"redux":262}],280:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27616,4 +27750,4 @@ function configureStore() {
     return finalCreateStore(_index2.default, initialState);
 }
 
-},{"./actions/index":274,"./reducers/index":277,"redux":262,"redux-devtools-extension":255,"redux-thunk":256}]},{},[1]);
+},{"./actions/index":276,"./reducers/index":279,"redux":262,"redux-devtools-extension":255,"redux-thunk":256}]},{},[1]);

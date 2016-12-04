@@ -17,6 +17,7 @@ var _ = require('lodash');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
 var control = require("jsx-control-statements");
+var historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('clean', function() {
     return del.sync(['dist/*']);
@@ -105,19 +106,7 @@ gulp.task('generate',function(type,name){
             .pipe(template({name:name}))
             .pipe(rename(name+".scss"))
             .pipe(gulp.dest("src/containers/"+name));
-    }else if(type==="action"){
-        gulp.src('dev/templates/action.js')
-            .pipe(template({name:name}))
-            .pipe(rename(name+"Action.js"))
-            .pipe(gulp.dest("src/redux/actions/"));
-    }else if(type==="reducer"){
-        gulp.src('dev/templates/reducer.js')
-            .pipe(template({name:name}))
-            .pipe(rename(name+"Reducer.js"))
-            .pipe(gulp.dest("src/redux/reducers/"));
-            console.log( name );
     }
-
 
 });
 
@@ -126,7 +115,10 @@ gulp.task('watch', ['html','sass','scripts','images'], function() {
     runSequence('injectedScss','sass');
 
     browserSync.init({
-        server: "./dist"
+        server : {
+            baseDir:'./dist',
+            middleware: [ historyApiFallback() ]
+        }
     });
 
     gulp.watch('src/index.html', ['html']);

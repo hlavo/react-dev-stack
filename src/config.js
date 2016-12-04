@@ -1,5 +1,5 @@
 const config = {
-    host:"/whatsapp/dist"
+    host:"/"
 }
 
 
